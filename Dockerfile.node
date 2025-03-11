@@ -1,0 +1,9 @@
+FROM node:latest
+
+WORKDIR /src
+
+RUN npm install -g @vue/cli
+
+EXPOSE 8081
+
+CMD ["sh", "-c", "if [ ! -f package.json ]; then vue create . --default; fi && npm install && npm run serve -- --port 8081"]
